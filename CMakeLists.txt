@@ -32,13 +32,13 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 )
 target_link_libraries(${PROJECT_NAME} PRIVATE SDL2main SDL2)
 
-if(WIN32)
-    # If on win32 env, Copy SDL2.dll to the build folder after the executable is built
-    add_custom_command(
-        TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "${CMAKE_BINARY_DIR}/externals/SDL/$<CONFIG>/$<IF:$<CONFIG:Debug>,SDL2d.dll,SDL2.dll>"
-        "${CMAKE_BINARY_DIR}/$<CONFIG>/$<IF:$<CONFIG:Debug>,SDL2d.dll,SDL2.dll>"
-        COMMENT "Copying SDL2 DLL to the build folder"
-    )
-endif()
+# if(WIN32)
+# # If on win32 env, Copy SDL2.dll to the build folder after the executable is built
+# add_custom_command(
+# TARGET ${PROJECT_NAME} POST_BUILD
+# COMMAND ${CMAKE_COMMAND} -E copy_if_different
+# "${CMAKE_BINARY_DIR}/externals/SDL/$<CONFIG>/$<IF:$<CONFIG:Debug>,SDL2d.dll,SDL2.dll>"
+# "${CMAKE_BINARY_DIR}/$<CONFIG>/$<IF:$<CONFIG:Debug>,SDL2d.dll,SDL2.dll>"
+# COMMENT "Copying SDL2 DLL to the build folder"
+# )
+# endif()

@@ -1,6 +1,15 @@
 #include <iostream>
-int main(int arc, char **argv)
+#include "renderer.h"
+#include "engine.h"
+
+int main(int argc, char **argv)
 {
-    std::cout << "Hello Game Of Life";
+    Engine engine;
+    // if (argc == 2)
+    // {
+    engine.setStartPattern("C:\\Users\\trasoloallaoui\\C++\\git\\GoL\\src\\pattern.txt"); // argv[2]);
+    // }
+    Renderer renderer(engine);
+    renderer.render();
     return 0;
 }
